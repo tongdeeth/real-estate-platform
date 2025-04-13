@@ -1,39 +1,24 @@
-// script.js
-// Initialize the map
-var map = L.map('map').setView([13.7563, 100.5018], 12); // Center on Bangkok
+document.getElementById('property-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-// Add OpenStreetMap tile layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    // Get form values
+    var title = document.getElementById('title').value.trim();
+    var type = document.getElementById('type').value;
+    var price = parseFloat(document.getElementById('price').value);
+    var lat = parseFloat(document.getElementById('lat').value);
+    var lng = parseFloat(document.getElementById('lng').value);
 
-// Sample properties (mock data)
-var properties = [
-    { lat: 13.7563, lng: 100.5018, title: "คอนโดใจกลางเมือง", type: "condo", price: "฿2,500,000" },
-    { lat: 13.7600, lng: 100.5100, title: "บ้านเดี่ยวสไตล์โมเดิร์น", type: "house", price: "฿5,000,000" },
-    { lat: 13.7400, lng: 100.5200, title: "ที่ดินพร้อมสร้าง", type: "land", price: "฿3,000,000" },
-];
+    // Validate inputs
+    if (!title || !type || isNaN(price) || isNaN(lat) || isNaN(lng)) {
+        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        return;
+    }
 
-// Create markers and store them in an array
-var markers = [];
-properties.forEach(function(property) {
-    var marker = L.marker([property.lat, property.lng])
-        .bindPopup(`${property.title} (${property.price})`)
-        .addTo(map);
-    marker.type = property.type; // Add type to marker for filtering
-    markers.push(marker);
-});
+    // Add new property marker
+    L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(`${title} (${type}) - ${price.toLocaleString()} บาท`);
 
-// Filter function
-document.getElementById('type-filter').addEventListener('change', function() {
-    var selectedType = this.value;
-
-    markers.forEach(function(marker) {
-        if (selectedType === 'all' || marker.type === selectedType) {
-            marker.addTo(map); // Show marker
-        } else {
-            map.removeLayer(marker); // Hide marker
-        }
-    });
+    // Reset form
+    document.getElementById('property-form').reset();
 });
