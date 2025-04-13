@@ -1,38 +1,88 @@
-<!-- Property Listing Form -->
-<div class="form-container">
-    <h2>ลงประกาศทรัพย์สิน</h2>
-    <form id="property-form">
-        <label for="title">
-            <i class="fas fa-heading"></i> ชื่อทรัพย์สิน:
-        </label>
-        <input type="text" id="title" name="title" placeholder="ใส่ชื่อทรัพย์สิน" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Platform</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>PropertyPin</h1>
+        <p>หาทรัพย์สินในฝันของคุณบนแผนที่!</p>
+    </header>
 
-        <label for="type">
-            <i class="fas fa-tag"></i> ประเภท:
+    <!-- Filter Section -->
+    <div class="filters">
+        <label for="type-filter">
+            <i class="fas fa-filter"></i> กรองโดย:
         </label>
-        <select id="type" name="type" required>
+        <select id="type-filter">
+            <option value="all">ทั้งหมด</option>
             <option value="condo"><i class="fas fa-building"></i> คอนโด</option>
             <option value="house"><i class="fas fa-home"></i> บ้านเดี่ยว</option>
             <option value="land"><i class="fas fa-tree"></i> ที่ดิน</option>
         </select>
+    </div>
 
-        <label for="price">
-            <i class="fas fa-dollar-sign"></i> ราคา:
-        </label>
-        <input type="number" id="price" name="price" placeholder="ใส่ราคา" required>
+    <!-- Property Listing Form -->
+    <div class="form-container">
+        <h2>ลงประกาศทรัพย์สิน</h2>
+        <form id="property-form">
+            <label for="title">
+                <i class="fas fa-heading"></i> ชื่อทรัพย์สิน:
+            </label>
+            <input type="text" id="title" name="title" placeholder="ใส่ชื่อทรัพย์สิน">
 
-        <label for="lat">
-            <i class="fas fa-globe-asia"></i> Latitude:
-        </label>
-        <input type="number" step="any" id="lat" name="lat" placeholder="ใส่ละติจูด" required>
+            <label for="type">
+                <i class="fas fa-tag"></i> ประเภท:
+            </label>
+            <select id="type" name="type">
+                <option value="condo"><i class="fas fa-building"></i> คอนโด</option>
+                <option value="house"><i class="fas fa-home"></i> บ้านเดี่ยว</option>
+                <option value="land"><i class="fas fa-tree"></i> ที่ดิน</option>
+            </select>
 
-        <label for="lng">
-            <i class="fas fa-map-marker-alt"></i> Longitude:
-        </label>
-        <input type="number" step="any" id="lng" name="lng" placeholder="ใส่ลองจิจูด" required>
+            <label for="price">
+                <i class="fas fa-dollar-sign"></i> ราคา:
+            </label>
+            <input type="number" id="price" name="price" placeholder="ใส่ราคา">
 
-        <button type="submit">
-            <i class="fas fa-plus"></i> เพิ่มทรัพย์สิน
-        </button>
-    </form>
-</div>
+            <label for="lat">
+                <i class="fas fa-globe-asia"></i> Latitude:
+            </label>
+            <input type="number" step="any" id="lat" name="lat" placeholder="ใส่ละติจูด">
+
+            <label for="lng">
+                <i class="fas fa-map-marker-alt"></i> Longitude:
+            </label>
+            <input type="number" step="any" id="lng" name="lng" placeholder="ใส่ลองจิจูด">
+
+            <button type="submit">
+                <i class="fas fa-plus"></i> เพิ่มทรัพย์สิน
+            </button>
+        </form>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+        <div id="map"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 PropertyPin. All rights reserved.</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
