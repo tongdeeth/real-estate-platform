@@ -1,24 +1,25 @@
-document.getElementById('property-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+// Initialize the map
+var map = L.map('map').setView([13.7563, 100.5018], 12); // Set Bangkok coordinates as default
 
-    // Get form values
-    var title = document.getElementById('title').value.trim();
-    var type = document.getElementById('type').value;
-    var price = parseFloat(document.getElementById('price').value);
-    var lat = parseFloat(document.getElementById('lat').value);
-    var lng = parseFloat(document.getElementById('lng').value);
+// Add OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
 
-    // Validate inputs
-    if (!title || !type || isNaN(price) || isNaN(lat) || isNaN(lng)) {
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-        return;
-    }
+// Example markers
+var condoIcon = L.icon({
+    iconUrl: 'condo-icon.png',
+    iconSize: [38, 38],
+    iconAnchor: [19, 38]
+});
 
-    // Add new property marker
-    L.marker([lat, lng])
-        .addTo(map)
-        .bindPopup(`${title} (${type}) - ${price.toLocaleString()} บาท`);
+L.marker([13.7563, 100.5018], { icon: condoIcon })
+    .addTo(map)
+    .bindPopup("คอนโดใจกลางกรุงเทพ");
 
-    // Reset form
-    document.getElementById('property-form').reset();
+// Handle Floating Action Button (FAB) click
+document.querySelector('.fab-button').addEventListener('click', function() {
+    alert("เพิ่มทรัพย์สินใหม่!");
+    // You can add more functionality here, such as opening a modal form
 });
