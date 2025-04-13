@@ -1,0 +1,33 @@
+/* style.css */
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#filters {
+    margin: 10px auto;
+    width: 90%;
+    text-align: center;
+}
+
+#map {
+    height: 80vh; /* แผนที่ครอบคลุม 80% ของหน้าจอ */
+    width: 100%;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
