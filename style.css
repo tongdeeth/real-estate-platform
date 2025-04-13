@@ -36,10 +36,72 @@ body {
     color: gold;
 }
 
+/* Filter Section */
+#filters {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#filters label {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#filters select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
 /* Map Section */
 #map {
-    height: calc(100vh - 150px); /* ลดขนาดตามความสูงของหน้าจอ */
+    height: calc(100vh - 200px); /* ลดขนาดตามความสูงของหน้าจอ */
     width: 100%;
+}
+
+/* Property Form */
+#property-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#property-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#property-form input,
+#property-form select,
+#property-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#property-form button {
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#property-form button:hover {
+    background-color: #218838;
 }
 
 /* Bottom Navigation Menu */
