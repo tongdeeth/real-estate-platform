@@ -1,33 +1,93 @@
-/* style.css */
-/* Basic Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+/* Form Container */
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-container button {
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    transform: scale(1.05);
+    background-color: #218838;
+}
+
+/* Header Styling */
 header {
-    background: #4CAF50;
+    background-color: #2c3e50;
     color: white;
     text-align: center;
     padding: 20px 0;
+    font-family: 'Arial', sans-serif;
 }
 
-#filters {
-    margin: 10px auto;
-    width: 90%;
-    text-align: center;
+header h1 {
+    font-size: 2rem;
+    margin: 0;
 }
 
-#map {
-    height: 80vh; /* แผนที่ครอบคลุม 80% ของหน้าจอ */
-    width: 100%;
+header p {
+    font-size: 1rem;
+    margin: 5px 0 0;
 }
 
+/* Footer Styling */
 footer {
-    background: #333;
+    background-color: #2c3e50;
     color: white;
     text-align: center;
     padding: 10px 0;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Fade-in Animation for Map */
+#map {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
