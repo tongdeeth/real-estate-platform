@@ -15,10 +15,15 @@
     <!-- Header -->
     <header class="header">
         <div class="profile-section">
-            <img src="profile-icon.png" alt="Profile" class="profile-icon">
-            <span class="username">PropertyPinซื้อขายปักหมุด</span>
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="username">Real Estate Platform</span>
             <span class="rating">5.00</span>
         </div>
+
+        <!-- Hamburger Icon -->
+        <button id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
     <!-- Filter Section -->
@@ -69,11 +74,6 @@
         </label>
         <input type="number" step="any" id="lng" name="lng" placeholder="ใส่ลองจิจูด">
 
-        <label for="image">
-            <i class="fas fa-image"></i> ภาพถ่าย:
-        </label>
-        <input type="file" id="image" name="image" accept="image/*">
-
         <button type="submit">
             <i class="fas fa-plus"></i> เพิ่มทรัพย์สิน
         </button>
@@ -84,25 +84,27 @@
         <i class="fas fa-plus"></i>
     </button>
 
-    <!-- Bottom Navigation Menu -->
-    <nav class="bottom-menu">
-        <a href="#" class="menu-item">
-            <i class="fas fa-car"></i>
-            <span>ประกาศทรัพย์สิน</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>ค้นหาทรัพย์สิน</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-wallet"></i>
-            <span>รายการโปรด</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-bell"></i>
-            <span>แจ้งเตือน</span>
-        </a>
-    </nav>
+    <!-- Sidebar -->
+    <div id="sidebar" style="display: none;">
+        <nav class="sidebar-menu">
+            <a href="#" class="menu-item">
+                <i class="fas fa-car"></i>
+                <span>ประกาศทรัพย์สิน</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>ค้นหาทรัพย์สิน</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-wallet"></i>
+                <span>รายการโปรด</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-bell"></i>
+                <span>แจ้งเตือน</span>
+            </a>
+        </nav>
+    </div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
