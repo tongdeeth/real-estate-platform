@@ -24,9 +24,10 @@ body {
     align-items: center;
 }
 
-.logo {
-    width: 40px;
-    height: 40px;
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
     margin-right: 10px;
 }
 
