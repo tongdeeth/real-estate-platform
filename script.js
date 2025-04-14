@@ -9,9 +9,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Load properties from LocalStorage
 let properties = JSON.parse(localStorage.getItem('properties')) || [
-    { lat: 13.7563, lng: 100.5018, type: 'condo', title: 'คอนโดใจกลางกรุงเทพ', price: 5000000, imageUrl: '' },
-    { lat: 13.7600, lng: 100.5100, type: 'house', title: 'บ้านเดี่ยวสไตล์โมเดิร์น', price: 8000000, imageUrl: '' },
-    { lat: 13.7400, lng: 100.5200, type: 'land', title: 'ที่ดินพร้อมสร้าง', price: 3000000, imageUrl: '' }
+    { lat: 13.7563, lng: 100.5018, type: 'condo', title: 'คอนโดใจกลางกรุงเทพ', price: 5000000, phone: '0123456789', showPhone: true, imageUrl: '' },
+    { lat: 13.7600, lng: 100.5100, type: 'house', title: 'บ้านเดี่ยวสไตล์โมเดิร์น', price: 8000000, phone: '0987654321', showPhone: false, imageUrl: '' },
+    { lat: 13.7400, lng: 100.5200, type: 'land', title: 'ที่ดินพร้อมสร้าง', price: 3000000, phone: '0812345678', showPhone: true, imageUrl: '' }
 ];
 
 // Initialize markers
@@ -22,6 +22,7 @@ properties.forEach(function (property) {
             <div style="text-align: center;">
                 ${property.imageUrl ? `<img src="${property.imageUrl}" alt="Property Image" width="100%">` : ''}
                 <p>${property.title} (${property.type}) - ${property.price.toLocaleString()} บาท</p>
+                ${property.showPhone && property.phone ? `<p>เบอร์ผู้ขาย: ${property.phone}</p>` : ''}
                 <p>พิกัด: ${property.lat}, ${property.lng}</p>
             </div>
         `)
@@ -106,6 +107,8 @@ document.getElementById('property-form').addEventListener('submit', function (ev
     const title = document.getElementById('title').value.trim();
     const type = document.getElementById('type').value;
     const price = parseFloat(document.getElementById('price').value);
+    const phone = document.getElementById('phone').value.trim();
+    const showPhone = document.getElementById('show-phone').checked;
     const locationMode = document.getElementById('location-mode').value;
     let lat, lng;
 
@@ -125,7 +128,7 @@ document.getElementById('property-form').addEventListener('submit', function (ev
     const imageFile = imageInput.files[0];
 
     if (!title || !type || isNaN(price) || isNaN(lat) || isNaN(lng)) {
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        alert("กรุณากรอกข้อมูลให้ครบถ้วน (ยกเว้นเบอร์ผู้ขายที่สามารถเว้นว่างได้)");
         return;
     }
 
@@ -139,7 +142,7 @@ document.getElementById('property-form').addEventListener('submit', function (ev
                     const imageUrl = e.target.result;
 
                     // Add new property
-                    const newProperty = { title, type, price, lat, lng, imageUrl };
+                    const newProperty = { title, type, price, phone, showPhone, lat, lng, imageUrl };
                     properties.push(newProperty);
                     localStorage.setItem('properties', JSON.stringify(properties));
 
@@ -149,7 +152,8 @@ document.getElementById('property-form').addEventListener('submit', function (ev
                             <div style="text-align: center;">
                                 <img src="${imageUrl}" alt="Property Image" width="100%">
                                 <p>${title} (${type}) - ${price.toLocaleString()} บาท</p>
-                                <p>พิกัด: ${lat}, ${property.lng}</p>
+                                ${showPhone && phone ? `<p>เบอร์ผู้ขาย: ${phone}</p>` : ''}
+                                <p>พิกัด: ${lat}, ${lng}</p>
                             </div>
                         `)
                         .addTo(map);
@@ -171,7 +175,7 @@ document.getElementById('property-form').addEventListener('submit', function (ev
         });
     } else {
         // Add property without image
-        const newProperty = { title, type, price, lat, lng, imageUrl: '' };
+        const newProperty = { title, type, price, phone, showPhone, lat, lng, imageUrl: '' };
         properties.push(newProperty);
         localStorage.setItem('properties', JSON.stringify(properties));
 
@@ -179,6 +183,7 @@ document.getElementById('property-form').addEventListener('submit', function (ev
             .bindPopup(`
                 <div style="text-align: center;">
                     <p>${title} (${type}) - ${price.toLocaleString()} บาท</p>
+                    ${showPhone && phone ? `<p>เบอร์ผู้ขาย: ${phone}</p>` : ''}
                     <p>พิกัด: ${lat}, ${lng}</p>
                 </div>
             `)
