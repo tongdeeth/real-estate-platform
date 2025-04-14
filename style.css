@@ -158,3 +158,44 @@ body {
 .fab-button:hover {
     background-color: #218838;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Header */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Filter Section */
+    #filters {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #filters label {
+        margin-right: 5px;
+    }
+
+    #filters select {
+        width: auto;
+    }
+
+    /* Bottom Navigation Menu */
+    .bottom-menu {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .menu-item {
+        margin-bottom: 10px;
+    }
+
+    /* FAB */
+    .fab-button {
+        bottom: 20px;
+        right: 20px;
+    }
+}
