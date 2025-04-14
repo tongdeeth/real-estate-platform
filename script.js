@@ -67,3 +67,8 @@ document.getElementById('property-form').addEventListener('submit', function(eve
     document.getElementById('property-form').reset();
     document.getElementById('property-form').style.display = 'none'; // Hide form after submission
 });
+
+// Remove property
+function removeProperty(marker) {
+    map.removeLayer(marker);
+}
