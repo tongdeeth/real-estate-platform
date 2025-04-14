@@ -51,6 +51,9 @@ document.getElementById('property-form').addEventListener('submit', function(eve
     var price = parseFloat(document.getElementById('price').value);
     var lat = parseFloat(document.getElementById('lat').value);
     var lng = parseFloat(document.getElementById('lng').value);
+    var imageInput = document.getElementById('image');
+    var imageFile = imageInput.files[0];
+    var imageUrl = imageFile ? URL.createObjectURL(imageFile) : '';
 
     // Validate inputs
     if (!title || !type || isNaN(price) || isNaN(lat) || isNaN(lng)) {
@@ -58,17 +61,17 @@ document.getElementById('property-form').addEventListener('submit', function(eve
         return;
     }
 
-    // Add new property marker
+    // Add new property marker with image in pop-up
     L.marker([lat, lng])
         .addTo(map)
-        .bindPopup(`${title} (${type}) - ${price.toLocaleString()} บาท`);
+        .bindPopup(`
+            <div style="text-align: center;">
+                ${imageUrl ? `<img src="${imageUrl}" alt="Property Image" width="100%">` : ''}
+                <p>${title} (${type}) - ${price.toLocaleString()} บาท</p>
+            </div>
+        `);
 
     // Reset form
     document.getElementById('property-form').reset();
     document.getElementById('property-form').style.display = 'none'; // Hide form after submission
 });
-
-// Remove property
-function removeProperty(marker) {
-    map.removeLayer(marker);
-}
