@@ -50,16 +50,9 @@ body {
     align-items: center;
 }
 
-.profile-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.rating {
+.username {
     font-size: 16px;
-    color: gold;
+    font-weight: bold;
 }
 
 /* Map Section */
@@ -146,16 +139,7 @@ body {
         font-size: 10px;
     }
 
-    .profile-icon {
-        width: 25px;
-        height: 25px;
-    }
-
     .username {
-        font-size: 14px;
-    }
-
-    .rating {
         font-size: 14px;
     }
 
