@@ -36,29 +36,9 @@ body {
     color: gold;
 }
 
-/* Filter Section */
-#filters {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-#filters label {
-    display: inline-block;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-#filters select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
 /* Map Section */
 #map {
-    height: calc(100vh - 200px); /* ลดขนาดตามความสูงของหน้าจอ */
+    height: calc(100vh - 200px);
     width: 100%;
 }
 
@@ -69,45 +49,11 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    display: none; /* Hide by default */
-}
-
-#property-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#property-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-#property-form input,
-#property-form select,
-#property-form button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-#property-form button {
-    margin-top: 15px;
-    background-color: #28a745;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#property-form button:hover {
-    background-color: #218838;
+    display: none;
+    max-width: 90%;
+    width: 400px;
 }
 
 /* Bottom Navigation Menu */
@@ -127,6 +73,7 @@ body {
     text-align: center;
     color: #333;
     font-size: 14px;
+    text-decoration: none;
 }
 
 .menu-item i {
@@ -140,21 +87,54 @@ body {
     position: fixed;
     bottom: 70px;
     right: 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.fab-button:hover {
-    background-color: #218838;
+/* Feedback Button */
+.feedback-button {
+    bottom: 130px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .header {
+        padding: 10px;
+    }
+
+    .profile-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .username {
+        font-size: 14px;
+    }
+
+    .rating {
+        font-size: 14px;
+    }
+
+    .bottom-menu {
+        padding: 5px 0;
+    }
+
+    .menu-item {
+        font-size: 12px;
+    }
+
+    .menu-item i {
+        font-size: 18px;
+    }
+
+    .fab-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
 }
