@@ -149,7 +149,7 @@ document.getElementById('property-form').addEventListener('submit', function (ev
                             <div style="text-align: center;">
                                 <img src="${imageUrl}" alt="Property Image" width="100%">
                                 <p>${title} (${type}) - ${price.toLocaleString()} บาท</p>
-                                <p>พิกัด: ${lat}, ${lng}</p>
+                                <p>พิกัด: ${lat}, ${property.lng}</p>
                             </div>
                         `)
                         .addTo(map);
