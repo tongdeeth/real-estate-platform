@@ -24,10 +24,9 @@ body {
     align-items: center;
 }
 
-.profile-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+.logo {
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
 }
 
@@ -36,166 +35,37 @@ body {
     color: gold;
 }
 
-/* Filter Section */
-#filters {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-#filters label {
-    display: inline-block;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-#filters select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-/* Map Section */
-#map {
-    height: calc(100vh - 200px); /* ลดขนาดตามความสูงของหน้าจอ */
-    width: 100%;
-}
-
-/* Property Listing Form */
-#property-form {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none; /* Hide by default */
-}
-
-#property-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#property-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-#property-form input,
-#property-form select,
-#property-form button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-#property-form button {
-    margin-top: 15px;
-    background-color: #28a745;
+/* Hamburger Icon */
+#menu-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
     color: white;
-    font-weight: bold;
     cursor: pointer;
 }
 
-#property-form button:hover {
-    background-color: #218838;
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* ซ่อนสไลด์บาร์ด้านข้างไว้ด้านนอกหน้าจอ */
+    width: 300px;
+    height: 100vh;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease;
 }
 
-/* Bottom Navigation Menu */
-.bottom-menu {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+#sidebar.show {
+    transform: translateX(0); /* เมื่อคลิกปุ่มสามขีด แสดงสไลด์บาร์ด้านข้าง */
+}
+
+.sidebar-menu {
+    padding: 20px;
 }
 
 .menu-item {
     text-align: center;
     color: #333;
     font-size: 14px;
-}
-
-.menu-item i {
-    font-size: 20px;
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Floating Action Button */
-.fab-button {
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.fab-button:hover {
-    background-color: #218838;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    /* Header */
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    /* Filter Section */
-    #filters {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-    }
-
-    #filters label {
-        margin-right: 5px;
-    }
-
-    #filters select {
-        width: auto;
-    }
-
-    /* Bottom Navigation Menu */
-    .bottom-menu {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .menu-item {
-        margin-bottom: 10px;
-    }
-
-    /* FAB */
-    .fab-button {
-        bottom: 20px;
-        right: 20px;
-    }
+    margin-bottom: 10px;
 }
